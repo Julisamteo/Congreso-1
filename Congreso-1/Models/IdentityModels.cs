@@ -24,6 +24,29 @@ namespace Congreso_1.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        public DbSet<City> Tb_City { get; set; }
+
+        public DbSet<Congress> Tb_Congress { get; set; }
+        public DbSet<Congress_Enterprise> Tb_Congress_Enterprise { get; set; }
+        public DbSet<Country> Tb_Country { get; set; }
+        public DbSet<Digital_Resource> Tb_Digitar_Resource { get; set; }
+        public DbSet<Enterprise> Tb_Enterprise { get; set; }
+        public DbSet<Schedule> Tb_Schedule { get; set; }
+        public DbSet<Stand> Tb_Stand { get; set; }
+        public DbSet<Stand_Resource> Tb_Stand_Resource { get; set; }
+        public DbSet<Stand_Type> Tb_Stand_Type { get; set; }
+        public DbSet<UserInteractions> Tb_User_Interactions{get; set; }
+        public DbSet<Webinar> Tb_Webinar { get; set; }
+
+
+
+
+
+
+
+
+
+
 
         public static ApplicationDbContext Create()
         {
