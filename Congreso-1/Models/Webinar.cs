@@ -21,7 +21,7 @@ namespace Congreso_1.Models
 
         // FALTA ID A ASPNET USERS
 
-        public ICollection<ApplicationUser> User_ID { get; set; }
+        public ApplicationUser User_ID { get; set; }
 
         // Permite a Schedule acceder a la Data
         public ICollection<Schedule> Schedules { get; set; }
