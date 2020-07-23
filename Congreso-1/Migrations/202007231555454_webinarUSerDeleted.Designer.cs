@@ -7,13 +7,13 @@ namespace Congreso_1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Correción2 : IMigrationMetadata
+    public sealed partial class webinarUSerDeleted : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Correción2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(webinarUSerDeleted));
         
         string IMigrationMetadata.Id
         {
-            get { return "202007180304478_Correción2"; }
+            get { return "202007231555454_webinarUSerDeleted"; }
         }
         
         string IMigrationMetadata.Source

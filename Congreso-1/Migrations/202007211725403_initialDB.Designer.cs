@@ -7,13 +7,13 @@ namespace Congreso_1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Correcion1 : IMigrationMetadata
+    public sealed partial class initialDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Correcion1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "202007180257042_Correcion1"; }
+            get { return "202007211725403_initialDB"; }
         }
         
         string IMigrationMetadata.Source
