@@ -3,7 +3,7 @@ namespace Congreso_1.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialDB : DbMigration
+    public partial class firstMig : DbMigration
     {
         public override void Up()
         {
@@ -68,18 +68,15 @@ namespace Congreso_1.Migrations
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
                         City_CityId = c.Int(),
-                        Webinar_WebinarId = c.Int(),
                         Enterprise_EnterpriseId = c.Int(),
                         UserInteractions_UserInteractionsId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Cities", t => t.City_CityId)
-                .ForeignKey("dbo.Webinars", t => t.Webinar_WebinarId)
                 .ForeignKey("dbo.Enterprises", t => t.Enterprise_EnterpriseId)
                 .ForeignKey("dbo.UserInteractions", t => t.UserInteractions_UserInteractionsId)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex")
                 .Index(t => t.City_CityId)
-                .Index(t => t.Webinar_WebinarId)
                 .Index(t => t.Enterprise_EnterpriseId)
                 .Index(t => t.UserInteractions_UserInteractionsId);
             
@@ -131,10 +128,13 @@ namespace Congreso_1.Migrations
                         WebinarEndDate = c.DateTime(nullable: false),
                         UserCount = c.Int(nullable: false),
                         available = c.Int(nullable: false),
+                        User_ID_Id = c.String(maxLength: 128),
                         Congress_CongressId = c.Int(),
                     })
                 .PrimaryKey(t => t.WebinarId)
+                .ForeignKey("dbo.AspNetUsers", t => t.User_ID_Id)
                 .ForeignKey("dbo.Congresses", t => t.Congress_CongressId)
+                .Index(t => t.User_ID_Id)
                 .Index(t => t.Congress_CongressId);
             
             CreateTable(
@@ -154,19 +154,17 @@ namespace Congreso_1.Migrations
                 "dbo.Congress_Enterprise",
                 c => new
                     {
-                        CongressId = c.Int(nullable: false, identity: true),
+                        CongressId = c.Int(nullable: false),
                         EnterpriseId = c.Int(nullable: false),
                         StandId = c.Int(nullable: false),
-                        Congress_CongressId = c.Int(),
-                        Stand_Stand_id = c.Int(),
                     })
-                .PrimaryKey(t => t.CongressId)
-                .ForeignKey("dbo.Congresses", t => t.Congress_CongressId)
+                .PrimaryKey(t => new { t.CongressId, t.EnterpriseId, t.StandId })
+                .ForeignKey("dbo.Congresses", t => t.CongressId, cascadeDelete: true)
                 .ForeignKey("dbo.Enterprises", t => t.EnterpriseId, cascadeDelete: true)
-                .ForeignKey("dbo.Stands", t => t.Stand_Stand_id)
+                .ForeignKey("dbo.Stands", t => t.StandId, cascadeDelete: true)
+                .Index(t => t.CongressId)
                 .Index(t => t.EnterpriseId)
-                .Index(t => t.Congress_CongressId)
-                .Index(t => t.Stand_Stand_id);
+                .Index(t => t.StandId);
             
             CreateTable(
                 "dbo.Enterprises",
@@ -254,12 +252,12 @@ namespace Congreso_1.Migrations
             DropForeignKey("dbo.Stand_Resource", "Stand_Stand_id", "dbo.Stands");
             DropForeignKey("dbo.Stand_Resource", "DResourceId", "dbo.Digital_Resource");
             DropForeignKey("dbo.Stands", "Stand_Type_StandType", "dbo.Stand_Type");
-            DropForeignKey("dbo.Congress_Enterprise", "Stand_Stand_id", "dbo.Stands");
+            DropForeignKey("dbo.Congress_Enterprise", "StandId", "dbo.Stands");
             DropForeignKey("dbo.AspNetUsers", "Enterprise_EnterpriseId", "dbo.Enterprises");
             DropForeignKey("dbo.Congress_Enterprise", "EnterpriseId", "dbo.Enterprises");
-            DropForeignKey("dbo.Congress_Enterprise", "Congress_CongressId", "dbo.Congresses");
+            DropForeignKey("dbo.Congress_Enterprise", "CongressId", "dbo.Congresses");
             DropForeignKey("dbo.Webinars", "Congress_CongressId", "dbo.Congresses");
-            DropForeignKey("dbo.AspNetUsers", "Webinar_WebinarId", "dbo.Webinars");
+            DropForeignKey("dbo.Webinars", "User_ID_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.Schedules", "Webinar_WebinarId", "dbo.Webinars");
             DropForeignKey("dbo.AspNetUsers", "City_CityId", "dbo.Cities");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
@@ -270,16 +268,16 @@ namespace Congreso_1.Migrations
             DropIndex("dbo.Stand_Resource", new[] { "Stand_Stand_id" });
             DropIndex("dbo.Stand_Resource", new[] { "DResourceId" });
             DropIndex("dbo.Stands", new[] { "Stand_Type_StandType" });
-            DropIndex("dbo.Congress_Enterprise", new[] { "Stand_Stand_id" });
-            DropIndex("dbo.Congress_Enterprise", new[] { "Congress_CongressId" });
+            DropIndex("dbo.Congress_Enterprise", new[] { "StandId" });
             DropIndex("dbo.Congress_Enterprise", new[] { "EnterpriseId" });
+            DropIndex("dbo.Congress_Enterprise", new[] { "CongressId" });
             DropIndex("dbo.Schedules", new[] { "Webinar_WebinarId" });
             DropIndex("dbo.Webinars", new[] { "Congress_CongressId" });
+            DropIndex("dbo.Webinars", new[] { "User_ID_Id" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", new[] { "UserInteractions_UserInteractionsId" });
             DropIndex("dbo.AspNetUsers", new[] { "Enterprise_EnterpriseId" });
-            DropIndex("dbo.AspNetUsers", new[] { "Webinar_WebinarId" });
             DropIndex("dbo.AspNetUsers", new[] { "City_CityId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Cities", new[] { "CountryId" });

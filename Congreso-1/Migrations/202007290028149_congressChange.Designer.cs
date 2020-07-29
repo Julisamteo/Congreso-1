@@ -7,13 +7,13 @@ namespace Congreso_1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class initialDB : IMigrationMetadata
+    public sealed partial class congressChange : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initialDB));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(congressChange));
         
         string IMigrationMetadata.Id
         {
-            get { return "202007211725403_initialDB"; }
+            get { return "202007290028149_congressChange"; }
         }
         
         string IMigrationMetadata.Source

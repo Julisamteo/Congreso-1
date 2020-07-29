@@ -9,13 +9,13 @@ namespace Congreso_1.Models
     public class Congress
     {
         [Key]
-        public int  CongressId { get; set; }
-       public string CongressName { get; set; }
-       public string CongressTheme { get; set; }
-       public DateTime CongressInitialDate { get; set; }
-       public DateTime CongressFinalDate { get; set; }
-       public int Available { get; set; }
-        public ICollection<Webinar> Webinar { get; set; }
+        public int CongressId { get; set; }
+        public string CongressName { get; set; }
+        public string CongressTheme { get; set; }
+        public DateTime CongressInitialDate { get; set; }
+        public DateTime CongressFinalDate { get; set; }
+        public int Available { get; set; }
+        public virtual ICollection<Webinar> Webinar { get; set; }
 
     }
 }

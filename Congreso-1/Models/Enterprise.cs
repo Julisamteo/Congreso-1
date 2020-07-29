@@ -14,7 +14,6 @@ namespace Congreso_1.Models
         public int EnterpriseVerification { get; set; }
         public string EnterpriseName { get; set; }
         public int Available { get; set; }
-        public ICollection<Congress_Enterprise> Congress_Enterprises { get; set; }
         // falt FK a ASPNET USERS
         public ICollection<ApplicationUser> User_ID { get; set; }
     }
