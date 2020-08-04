@@ -11,6 +11,5 @@ namespace Congreso_1.Models
         [Key]
         public int CountryId { get; set; }
         public string CountryName { get; set; }
-        public ICollection<City> cities { get; set; }
     }
 }
