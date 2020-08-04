@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -23,10 +24,9 @@ namespace Congreso_1.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-
         }
-
         public DbSet<City> Tb_City { get; set; }
+
         public DbSet<Congress> Tb_Congress { get; set; }
         public DbSet<Congress_Enterprise> Tb_Congress_Enterprise { get; set; }
         public DbSet<Country> Tb_Country { get; set; }
@@ -38,6 +38,15 @@ namespace Congreso_1.Models
         public DbSet<Stand_Type> Tb_Stand_Type { get; set; }
         public DbSet<UserInteractions> Tb_User_Interactions{get; set; }
         public DbSet<Webinar> Tb_Webinar { get; set; }
+
+
+
+
+
+
+
+
+
 
 
         public static ApplicationDbContext Create()
