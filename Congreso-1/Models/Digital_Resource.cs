@@ -10,10 +10,9 @@ namespace Congreso_1.Models
     public class Digital_Resource
     {
         [Key]
-        public int ResourceId { get; set; }
+        public int DresourceId { get; set; }
         public string ResourceUrl { get; set; }
         public string ResourceHtml { get; set; }
         public bool Available { get; set; }
-        public ICollection<Stand_Resource> Stand_Resources { get; set; }
     }
 }

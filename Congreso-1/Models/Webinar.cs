@@ -32,10 +32,9 @@ namespace Congreso_1.Models
 
         public virtual Congress Congress { get; set; }
 
-        // FALTA ID A ASPNET USERS
+        [ForeignKey("User_ID")]
+        public string AspNetUserId { get; set; }
         public virtual ApplicationUser User_ID { get; set; }
 
-        // Permite a Schedule acceder a la Data
-        public virtual ICollection<Schedule> Schedules { get; set; }
     }
 }

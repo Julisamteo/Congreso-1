@@ -3,7 +3,7 @@ namespace Congreso_1.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class firstMig : DbMigration
+    public partial class firstMigration : DbMigration
     {
         public override void Up()
         {
@@ -52,60 +52,6 @@ namespace Congreso_1.Migrations
                 .PrimaryKey(t => t.CountryId);
             
             CreateTable(
-                "dbo.AspNetUsers",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Email = c.String(maxLength: 256),
-                        EmailConfirmed = c.Boolean(nullable: false),
-                        PasswordHash = c.String(),
-                        SecurityStamp = c.String(),
-                        PhoneNumber = c.String(),
-                        PhoneNumberConfirmed = c.Boolean(nullable: false),
-                        TwoFactorEnabled = c.Boolean(nullable: false),
-                        LockoutEndDateUtc = c.DateTime(),
-                        LockoutEnabled = c.Boolean(nullable: false),
-                        AccessFailedCount = c.Int(nullable: false),
-                        UserName = c.String(nullable: false, maxLength: 256),
-                        City_CityId = c.Int(),
-                        Enterprise_EnterpriseId = c.Int(),
-                        UserInteractions_UserInteractionsId = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Cities", t => t.City_CityId)
-                .ForeignKey("dbo.Enterprises", t => t.Enterprise_EnterpriseId)
-                .ForeignKey("dbo.UserInteractions", t => t.UserInteractions_UserInteractionsId)
-                .Index(t => t.UserName, unique: true, name: "UserNameIndex")
-                .Index(t => t.City_CityId)
-                .Index(t => t.Enterprise_EnterpriseId)
-                .Index(t => t.UserInteractions_UserInteractionsId);
-            
-            CreateTable(
-                "dbo.AspNetUserClaims",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        ClaimType = c.String(),
-                        ClaimValue = c.String(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId);
-            
-            CreateTable(
-                "dbo.AspNetUserLogins",
-                c => new
-                    {
-                        LoginProvider = c.String(nullable: false, maxLength: 128),
-                        ProviderKey = c.String(nullable: false, maxLength: 128),
-                        UserId = c.String(nullable: false, maxLength: 128),
-                    })
-                .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
-                .Index(t => t.UserId);
-            
-            CreateTable(
                 "dbo.Congresses",
                 c => new
                     {
@@ -127,28 +73,82 @@ namespace Congreso_1.Migrations
                         WebinarInitialDate = c.DateTime(nullable: false),
                         WebinarEndDate = c.DateTime(nullable: false),
                         UserCount = c.Int(nullable: false),
-                        available = c.Int(nullable: false),
-                        User_ID_Id = c.String(maxLength: 128),
-                        Congress_CongressId = c.Int(),
+                        available = c.Boolean(nullable: false),
+                        CongressId = c.Int(nullable: false),
+                        AspNetUserId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.WebinarId)
-                .ForeignKey("dbo.AspNetUsers", t => t.User_ID_Id)
-                .ForeignKey("dbo.Congresses", t => t.Congress_CongressId)
-                .Index(t => t.User_ID_Id)
-                .Index(t => t.Congress_CongressId);
+                .ForeignKey("dbo.Congresses", t => t.CongressId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.AspNetUserId)
+                .Index(t => t.CongressId)
+                .Index(t => t.AspNetUserId);
             
             CreateTable(
-                "dbo.Schedules",
+                "dbo.AspNetUsers",
                 c => new
                     {
-                        ScheduleId = c.Int(nullable: false, identity: true),
-                        Available = c.Int(nullable: false),
-                        Webinar_Id = c.Int(nullable: false),
-                        Webinar_WebinarId = c.Int(),
+                        Id = c.String(nullable: false, maxLength: 128),
+                        EnterpriseId = c.Int(nullable: false),
+                        CityId = c.Int(nullable: false),
+                        Email = c.String(maxLength: 256),
+                        EmailConfirmed = c.Boolean(nullable: false),
+                        PasswordHash = c.String(),
+                        SecurityStamp = c.String(),
+                        PhoneNumber = c.String(),
+                        PhoneNumberConfirmed = c.Boolean(nullable: false),
+                        TwoFactorEnabled = c.Boolean(nullable: false),
+                        LockoutEndDateUtc = c.DateTime(),
+                        LockoutEnabled = c.Boolean(nullable: false),
+                        AccessFailedCount = c.Int(nullable: false),
+                        UserName = c.String(nullable: false, maxLength: 256),
+                        UserInteractions_UserInteractionsId = c.Int(),
                     })
-                .PrimaryKey(t => t.ScheduleId)
-                .ForeignKey("dbo.Webinars", t => t.Webinar_WebinarId)
-                .Index(t => t.Webinar_WebinarId);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: true)
+                .ForeignKey("dbo.Enterprises", t => t.EnterpriseId, cascadeDelete: true)
+                .ForeignKey("dbo.UserInteractions", t => t.UserInteractions_UserInteractionsId)
+                .Index(t => t.EnterpriseId)
+                .Index(t => t.CityId)
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex")
+                .Index(t => t.UserInteractions_UserInteractionsId);
+            
+            CreateTable(
+                "dbo.AspNetUserClaims",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        ClaimType = c.String(),
+                        ClaimValue = c.String(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.Enterprises",
+                c => new
+                    {
+                        EnterpriseId = c.Int(nullable: false, identity: true),
+                        EnterpiseNit = c.Int(nullable: false),
+                        EnterpriseName = c.String(),
+                        EnterprisePhoneNumber = c.String(),
+                        EnterpriseEmail = c.String(),
+                        Available = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.EnterpriseId);
+            
+            CreateTable(
+                "dbo.AspNetUserLogins",
+                c => new
+                    {
+                        LoginProvider = c.String(nullable: false, maxLength: 128),
+                        ProviderKey = c.String(nullable: false, maxLength: 128),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.Congress_Enterprise",
@@ -167,42 +167,30 @@ namespace Congreso_1.Migrations
                 .Index(t => t.StandId);
             
             CreateTable(
-                "dbo.Enterprises",
-                c => new
-                    {
-                        EnterpriseId = c.Int(nullable: false, identity: true),
-                        EnterpiseNit = c.Int(nullable: false),
-                        EnterpriseVerification = c.Int(nullable: false),
-                        EnterpriseName = c.String(),
-                        Available = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.EnterpriseId);
-            
-            CreateTable(
                 "dbo.Stands",
                 c => new
                     {
                         Stand_id = c.Int(nullable: false, identity: true),
                         StandTypeId = c.Int(nullable: false),
-                        Available = c.Int(nullable: false),
-                        Stand_Type_StandType = c.Int(),
+                        EnterpriseLogo = c.String(),
+                        EnterpriseBanner = c.String(),
+                        StandColorA = c.String(),
+                        StandColorB = c.String(),
+                        StandColorC = c.String(),
+                        Available = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Stand_id)
-                .ForeignKey("dbo.Stand_Type", t => t.Stand_Type_StandType)
-                .Index(t => t.Stand_Type_StandType);
+                .ForeignKey("dbo.Stand_Type", t => t.StandTypeId, cascadeDelete: true)
+                .Index(t => t.StandTypeId);
             
             CreateTable(
                 "dbo.Stand_Type",
                 c => new
                     {
                         StandType = c.Int(nullable: false, identity: true),
-                        StandName = c.String(),
-                        EnterpriseLogo = c.String(),
-                        EnterpriseBanner = c.String(),
-                        StandBody = c.String(),
-                        StandResourceA = c.String(),
-                        StandResourceB = c.String(),
-                        StandResourceC = c.String(),
+                        StandTypeName = c.String(),
+                        StandTypeDescription = c.String(),
+                        ResourceQuantity = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.StandType);
             
@@ -213,23 +201,34 @@ namespace Congreso_1.Migrations
                         DresourceId = c.Int(nullable: false, identity: true),
                         ResourceUrl = c.String(),
                         ResourceHtml = c.String(),
-                        Available = c.Int(nullable: false),
+                        Available = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.DresourceId);
+            
+            CreateTable(
+                "dbo.Schedules",
+                c => new
+                    {
+                        ScheduleId = c.Int(nullable: false, identity: true),
+                        Available = c.Int(nullable: false),
+                        Webinar_Id = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ScheduleId)
+                .ForeignKey("dbo.Webinars", t => t.Webinar_Id, cascadeDelete: true)
+                .Index(t => t.Webinar_Id);
             
             CreateTable(
                 "dbo.Stand_Resource",
                 c => new
                     {
-                        StandId = c.Int(nullable: false, identity: true),
+                        StandId = c.Int(nullable: false),
                         DResourceId = c.Int(nullable: false),
-                        Stand_Stand_id = c.Int(),
                     })
-                .PrimaryKey(t => t.StandId)
+                .PrimaryKey(t => new { t.StandId, t.DResourceId })
                 .ForeignKey("dbo.Digital_Resource", t => t.DResourceId, cascadeDelete: true)
-                .ForeignKey("dbo.Stands", t => t.Stand_Stand_id)
-                .Index(t => t.DResourceId)
-                .Index(t => t.Stand_Stand_id);
+                .ForeignKey("dbo.Stands", t => t.StandId, cascadeDelete: true)
+                .Index(t => t.StandId)
+                .Index(t => t.DResourceId);
             
             CreateTable(
                 "dbo.UserInteractions",
@@ -249,54 +248,54 @@ namespace Congreso_1.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUsers", "UserInteractions_UserInteractionsId", "dbo.UserInteractions");
-            DropForeignKey("dbo.Stand_Resource", "Stand_Stand_id", "dbo.Stands");
+            DropForeignKey("dbo.Stand_Resource", "StandId", "dbo.Stands");
             DropForeignKey("dbo.Stand_Resource", "DResourceId", "dbo.Digital_Resource");
-            DropForeignKey("dbo.Stands", "Stand_Type_StandType", "dbo.Stand_Type");
+            DropForeignKey("dbo.Schedules", "Webinar_Id", "dbo.Webinars");
             DropForeignKey("dbo.Congress_Enterprise", "StandId", "dbo.Stands");
-            DropForeignKey("dbo.AspNetUsers", "Enterprise_EnterpriseId", "dbo.Enterprises");
+            DropForeignKey("dbo.Stands", "StandTypeId", "dbo.Stand_Type");
             DropForeignKey("dbo.Congress_Enterprise", "EnterpriseId", "dbo.Enterprises");
             DropForeignKey("dbo.Congress_Enterprise", "CongressId", "dbo.Congresses");
-            DropForeignKey("dbo.Webinars", "Congress_CongressId", "dbo.Congresses");
-            DropForeignKey("dbo.Webinars", "User_ID_Id", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Schedules", "Webinar_WebinarId", "dbo.Webinars");
-            DropForeignKey("dbo.AspNetUsers", "City_CityId", "dbo.Cities");
+            DropForeignKey("dbo.Webinars", "AspNetUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUsers", "EnterpriseId", "dbo.Enterprises");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUsers", "CityId", "dbo.Cities");
+            DropForeignKey("dbo.Webinars", "CongressId", "dbo.Congresses");
             DropForeignKey("dbo.Cities", "CountryId", "dbo.Countries");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropIndex("dbo.Stand_Resource", new[] { "Stand_Stand_id" });
             DropIndex("dbo.Stand_Resource", new[] { "DResourceId" });
-            DropIndex("dbo.Stands", new[] { "Stand_Type_StandType" });
+            DropIndex("dbo.Stand_Resource", new[] { "StandId" });
+            DropIndex("dbo.Schedules", new[] { "Webinar_Id" });
+            DropIndex("dbo.Stands", new[] { "StandTypeId" });
             DropIndex("dbo.Congress_Enterprise", new[] { "StandId" });
             DropIndex("dbo.Congress_Enterprise", new[] { "EnterpriseId" });
             DropIndex("dbo.Congress_Enterprise", new[] { "CongressId" });
-            DropIndex("dbo.Schedules", new[] { "Webinar_WebinarId" });
-            DropIndex("dbo.Webinars", new[] { "Congress_CongressId" });
-            DropIndex("dbo.Webinars", new[] { "User_ID_Id" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", new[] { "UserInteractions_UserInteractionsId" });
-            DropIndex("dbo.AspNetUsers", new[] { "Enterprise_EnterpriseId" });
-            DropIndex("dbo.AspNetUsers", new[] { "City_CityId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.AspNetUsers", new[] { "CityId" });
+            DropIndex("dbo.AspNetUsers", new[] { "EnterpriseId" });
+            DropIndex("dbo.Webinars", new[] { "AspNetUserId" });
+            DropIndex("dbo.Webinars", new[] { "CongressId" });
             DropIndex("dbo.Cities", new[] { "CountryId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropTable("dbo.UserInteractions");
             DropTable("dbo.Stand_Resource");
+            DropTable("dbo.Schedules");
             DropTable("dbo.Digital_Resource");
             DropTable("dbo.Stand_Type");
             DropTable("dbo.Stands");
-            DropTable("dbo.Enterprises");
             DropTable("dbo.Congress_Enterprise");
-            DropTable("dbo.Schedules");
-            DropTable("dbo.Webinars");
-            DropTable("dbo.Congresses");
             DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.Enterprises");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.Webinars");
+            DropTable("dbo.Congresses");
             DropTable("dbo.Countries");
             DropTable("dbo.Cities");
             DropTable("dbo.AspNetUserRoles");

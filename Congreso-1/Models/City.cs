@@ -16,6 +16,5 @@ namespace Congreso_1.Models
         [ForeignKey("Country")]
         public int CountryId { get; set; }
         public virtual Country Country { get; set; }
-        public virtual ICollection<ApplicationUser> User_ID { get; set; }
     }
 }

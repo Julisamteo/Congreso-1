@@ -188,29 +188,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202007241951532_firstMig.cs" />
-    <Compile Include="Migrations\202007241951532_firstMig.Designer.cs">
-      <DependentUpon>202007241951532_firstMig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007242013544_standEnterpriseMod.cs" />
-    <Compile Include="Migrations\202007242013544_standEnterpriseMod.Designer.cs">
-      <DependentUpon>202007242013544_standEnterpriseMod.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007271834339_availableToBool.cs" />
-    <Compile Include="Migrations\202007271834339_availableToBool.Designer.cs">
-      <DependentUpon>202007271834339_availableToBool.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007281751120_webinarCongressData.cs" />
-    <Compile Include="Migrations\202007281751120_webinarCongressData.Designer.cs">
-      <DependentUpon>202007281751120_webinarCongressData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007282347540_webinar3.cs" />
-    <Compile Include="Migrations\202007282347540_webinar3.Designer.cs">
-      <DependentUpon>202007282347540_webinar3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202007290028149_congressChange.cs" />
-    <Compile Include="Migrations\202007290028149_congressChange.Designer.cs">
-      <DependentUpon>202007290028149_congressChange.cs</DependentUpon>
+    <Compile Include="Migrations\202008041727184_firstMigration.cs" />
+    <Compile Include="Migrations\202008041727184_firstMigration.Designer.cs">
+      <DependentUpon>202008041727184_firstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -293,11 +273,6 @@
     <Content Include="Views\Webinars\Details.cshtml" />
     <Content Include="Views\Webinars\Edit.cshtml" />
     <Content Include="Views\Webinars\Index.cshtml" />
-    <Content Include="Views\Congresses\Create.cshtml" />
-    <Content Include="Views\Congresses\Delete.cshtml" />
-    <Content Include="Views\Congresses\Details.cshtml" />
-    <Content Include="Views\Congresses\Edit.cshtml" />
-    <Content Include="Views\Congresses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -316,23 +291,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007241951532_firstMig.resx">
-      <DependentUpon>202007241951532_firstMig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007242013544_standEnterpriseMod.resx">
-      <DependentUpon>202007242013544_standEnterpriseMod.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007271834339_availableToBool.resx">
-      <DependentUpon>202007271834339_availableToBool.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007281751120_webinarCongressData.resx">
-      <DependentUpon>202007281751120_webinarCongressData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007282347540_webinar3.resx">
-      <DependentUpon>202007282347540_webinar3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007290028149_congressChange.resx">
-      <DependentUpon>202007290028149_congressChange.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008041727184_firstMigration.resx">
+      <DependentUpon>202008041727184_firstMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
