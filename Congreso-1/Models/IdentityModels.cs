@@ -10,6 +10,13 @@ namespace Congreso_1.Models
     // Para agregar datos de perfil del usuario, agregue más propiedades a su clase ApplicationUser. Visite https://go.microsoft.com/fwlink/?LinkID=317594 para obtener más información.
     public class ApplicationUser : IdentityUser
     {
+        [ForeignKey("Enterprise")]
+        public int EnterpriseId { get; set; }
+        public virtual Enterprise Enterprise { get; set; }
+
+        [ForeignKey("City")]
+        public int CityId { get; set; }
+        public virtual City City { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Tenga en cuenta que el valor de authenticationType debe coincidir con el definido en CookieAuthenticationOptions.AuthenticationType

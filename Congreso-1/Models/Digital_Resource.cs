@@ -14,6 +14,5 @@ namespace Congreso_1.Models
         public string ResourceUrl { get; set; }
         public string ResourceHtml { get; set; }
         public bool Available { get; set; }
-        public ICollection<Stand_Resource> Stand_Resources { get; set; }
     }
 }
