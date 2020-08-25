@@ -56,8 +56,8 @@ namespace Congreso_1
                 RequiredLength = 6,
                 RequireNonLetterOrDigit = true,
                 RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                RequireLowercase = false,
+                RequireUppercase = false,
             };
 
             // Configurar valores predeterminados para bloqueo de usuario

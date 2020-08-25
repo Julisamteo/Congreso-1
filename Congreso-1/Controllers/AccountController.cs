@@ -17,7 +17,7 @@ namespace Congreso_1.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        public ApplicationDbContext db = new ApplicationDbContext();
         public AccountController()
         {
         }
@@ -139,6 +139,8 @@ namespace Congreso_1.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.CityId = new SelectList(db.Tb_City, "CityId", "CityName");
+            ViewBag.EnterpriseId = new SelectList(db.Tb_Enterprise, "EnterpriseId", "EnterpriseName");
             return View();
         }
 
@@ -147,11 +149,11 @@ namespace Congreso_1.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, [Bind(Include = "Email,FirstName,LastName,CityId,EnterpriseId,Rol")] ApplicationUser ApplicationUser)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName=model.LastName, CityId=model.CityId, EnterpriseId=model.EnterpriseId, Rol=model.Rol };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -167,7 +169,8 @@ namespace Congreso_1.Controllers
                 }
                 AddErrors(result);
             }
-
+            ViewBag.CityId = new SelectList(db.Tb_City, "CityId", "CityName", ApplicationUser.CityId);
+            ViewBag.EnterpriseId = new SelectList(db.Tb_Enterprise, "EnterpriseId", "EnterpriseName", ApplicationUser.EnterpriseId);
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             return View(model);
         }
