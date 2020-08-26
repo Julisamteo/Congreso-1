@@ -13,7 +13,7 @@ namespace Congreso_1.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202008041727184_firstMigration"; }
+            get { return "202008251633473_firstMigration"; }
         }
         
         string IMigrationMetadata.Source

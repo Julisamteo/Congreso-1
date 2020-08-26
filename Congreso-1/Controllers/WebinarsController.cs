@@ -58,6 +58,8 @@ namespace Congreso_1.Controllers
             if (ModelState.IsValid)
             {
                 db.Tb_Webinar.Add(webinar);
+                Schedule sched = new Schedule { Webinar_Id = webinar.WebinarId, Available= webinar.available};
+                db.Tb_Schedule.Add(sched);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -126,8 +128,18 @@ namespace Congreso_1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WebinarId,WebinarTheme,WebinarInitialDate,WebinarEndDate,UserCount,available")] Webinar webinar)
+        public ActionResult Edit(CreateWebinar webinarReceived)
         {
+            Webinar webinar =new Webinar
+            {
+                WebinarTheme=webinarReceived.WebinarTheme,
+                WebinarInitialDate=webinarReceived.WebinarInitialDate,
+                WebinarEndDate=webinarReceived.WebinarEndDate,
+                UserCount=0,
+                available=webinarReceived.available,
+                CongressId=webinarReceived.congressId,
+                userId=webinarReceived.userId
+            };
             if (ModelState.IsValid)
             {
                 db.Entry(webinar).State = EntityState.Modified;
