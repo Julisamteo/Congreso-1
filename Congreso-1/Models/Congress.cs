@@ -14,8 +14,7 @@ namespace Congreso_1.Models
         public string CongressTheme { get; set; }
         public DateTime CongressInitialDate { get; set; }
         public DateTime CongressFinalDate { get; set; }
-        public int Available { get; set; }
-        public virtual ICollection<Webinar> Webinar { get; set; }
+        public bool Available { get; set; }
 
     }
 }

@@ -184,6 +184,8 @@
     <Compile Include="Controllers\CongressesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StandsController.cs" />
+    <Compile Include="Controllers\Stand_TypeController.cs" />
     <Compile Include="Controllers\WebinarsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -277,9 +279,25 @@
     <Content Include="Views\Webinars\Details.cshtml" />
     <Content Include="Views\Webinars\Edit.cshtml" />
     <Content Include="Views\Webinars\Index.cshtml" />
+    <Content Include="Views\Congresses\Create.cshtml" />
+    <Content Include="Views\Congresses\Delete.cshtml" />
+    <Content Include="Views\Congresses\Details.cshtml" />
+    <Content Include="Views\Congresses\Edit.cshtml" />
+    <Content Include="Views\Congresses\Index.cshtml" />
+    <Content Include="Views\Stands\Create.cshtml" />
+    <Content Include="Views\Stands\Delete.cshtml" />
+    <Content Include="Views\Stands\Details.cshtml" />
+    <Content Include="Views\Stands\Edit.cshtml" />
+    <Content Include="Views\Stands\Index.cshtml" />
+    <Content Include="Views\Stand_Type\Create.cshtml" />
+    <Content Include="Views\Stand_Type\Delete.cshtml" />
+    <Content Include="Views\Stand_Type\Details.cshtml" />
+    <Content Include="Views\Stand_Type\Edit.cshtml" />
+    <Content Include="Views\Stand_Type\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Archivos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -295,11 +313,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202008251633473_firstMigration.resx">
-      <DependentUpon>202008251633473_firstMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202008261916162_schedulemigration.resx">
-      <DependentUpon>202008261916162_schedulemigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202008041727184_firstMigration.resx">
+      <DependentUpon>202008041727184_firstMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

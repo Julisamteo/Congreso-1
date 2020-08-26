@@ -17,7 +17,6 @@ namespace Congreso_1.Models
         [ForeignKey("City")]
         public int CityId { get; set; }
         public virtual City City { get; set; }
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Tenga en cuenta que el valor de authenticationType debe coincidir con el definido en CookieAuthenticationOptions.AuthenticationType
@@ -32,10 +31,9 @@ namespace Congreso_1.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-
         }
-
         public DbSet<City> Tb_City { get; set; }
+
         public DbSet<Congress> Tb_Congress { get; set; }
         public DbSet<Congress_Enterprise> Tb_Congress_Enterprise { get; set; }
         public DbSet<Country> Tb_Country { get; set; }
@@ -47,6 +45,15 @@ namespace Congreso_1.Models
         public DbSet<Stand_Type> Tb_Stand_Type { get; set; }
         public DbSet<UserInteractions> Tb_User_Interactions{get; set; }
         public DbSet<Webinar> Tb_Webinar { get; set; }
+
+
+
+
+
+
+
+
+
 
 
         public static ApplicationDbContext Create()
