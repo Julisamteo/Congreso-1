@@ -18,9 +18,11 @@ namespace Congreso_1.Models
         public string WebinarTheme { get; set; }
 
         [Display(Name = "Fecha y hora de inicio")]
+        [DataType(DataType.DateTime)]
         public DateTime WebinarInitialDate { get; set; }
 
         [Display(Name = "Fecha y hora de finalización")]
+        [DataType(DataType.DateTime)]
         public DateTime WebinarEndDate { get; set; }
         public int UserCount { get; set; }
 
@@ -33,7 +35,7 @@ namespace Congreso_1.Models
         public virtual Congress Congress { get; set; }
 
         [ForeignKey("User_ID")]
-        public string AspNetUserId { get; set; }
+        public string userId { get; set; }
         public virtual ApplicationUser User_ID { get; set; }
 
     }

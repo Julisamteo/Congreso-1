@@ -12,7 +12,7 @@ namespace Congreso_1.Models
         [Key]
         public int ScheduleId { get; set; }
         // Activa o descativa el Schedule
-        public int Available { get; set; }
+        public bool Available { get; set; }
         // FK a Webinar
         [ForeignKey("Webinar")]
         public int Webinar_Id { get; set; }

@@ -79,6 +79,12 @@ namespace Congreso_1.Models
         [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Empresa")]
+        public int EnterpriseId;
+
+        [Display(Name = "City")]
+        public int CityId;
     }
 
     public class ResetPasswordViewModel
