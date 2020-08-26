@@ -112,7 +112,7 @@ namespace Congreso_1.Controllers
                 UserCount=0,
                 available=webinarReceived.available,
                 CongressId=webinarReceived.congressId,
-                userId=webinarReceived.userId
+                UserId=webinarReceived.userId
             };
             if (ModelState.IsValid)
             {
