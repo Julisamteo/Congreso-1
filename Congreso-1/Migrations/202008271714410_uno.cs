@@ -3,7 +3,7 @@ namespace Congreso_1.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class standEnterpriseMod : DbMigration
+    public partial class uno : DbMigration
     {
         public override void Up()
         {
