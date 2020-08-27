@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using static Congreso_1.Enum.Enum;
 
 namespace Congreso_1.Models
 {
@@ -80,11 +81,26 @@ namespace Congreso_1.Models
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
 
-        [Display(Name = "Empresa")]
-        public int EnterpriseId;
+        [Required]
+        [Display(Name = "Nombres")]
+        public string FirstName { get; set; }
 
-        [Display(Name = "City")]
-        public int CityId;
+        [Required]
+        [Display(Name = "Apellidos")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "Ciudad")]
+        public int CityId { get; set; }
+
+        [Required(ErrorMessage = "Seleccione una Empresa")]
+        [Display(Name = "Empresa")]
+        public int EnterpriseId { get; set; }
+
+        [Required(ErrorMessage = "Seleccione un Rol")]
+        [Display(Name = "Rol")]
+        public Roles Rol { get; set; }
+
     }
 
     public class ResetPasswordViewModel

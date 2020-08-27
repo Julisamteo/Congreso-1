@@ -37,12 +37,11 @@ namespace Congreso_1.Controllers
         }
 
         // GET: Webinars/Create
-        //utiliza el view model "CreateWebinar" para traer la lista de congresos desde la base de datos
-        //y pasarsela a la vista
         public ActionResult Create()
         {
             var cw = new CreateWebinar
             {
+                WebinarTheme = "",
                 congressList = db.Tb_Congress.ToList()
             };
             return View(cw);
@@ -67,30 +66,6 @@ namespace Congreso_1.Controllers
             return View(webinar);
         }
 
-        //metodo para validar que la información ingresada para el webinar sea correcta
-        public bool ValidateWebinar(Webinar webinar)
-        {
-            //var webinarList = db.Tb_Webinar.Where(w => w.CongressId == webinar.CongressId);
-            if (webinar != null)
-            {
-                //verifica que la fecha de inicio no sea mayor a la fecha de finalización
-                if (webinar.WebinarInitialDate > webinar.WebinarEndDate)
-                {
-                    return false;
-                }else if (webinar.WebinarInitialDate<DateTime.Now|| webinar.WebinarEndDate < DateTime.Now)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        /*
-        //test para crear webinars a partir de un viewmodel
         public ActionResult CreateWebinarViewModel(CreateWebinar cw)
         {
             var webinar = new Webinar
@@ -106,7 +81,6 @@ namespace Congreso_1.Controllers
             }
             return View();
         }
-        */
 
         // GET: Webinars/Edit/5
         public ActionResult Edit(int? id)
@@ -138,7 +112,7 @@ namespace Congreso_1.Controllers
                 UserCount=0,
                 available=webinarReceived.available,
                 CongressId=webinarReceived.congressId,
-                userId=webinarReceived.userId
+                UserId=webinarReceived.userId
             };
             if (ModelState.IsValid)
             {

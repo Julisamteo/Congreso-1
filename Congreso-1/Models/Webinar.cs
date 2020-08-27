@@ -1,5 +1,4 @@
-﻿using Microsoft.Ajax.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -35,7 +34,7 @@ namespace Congreso_1.Models
         public virtual Congress Congress { get; set; }
 
         [ForeignKey("User_ID")]
-        public string userId { get; set; }
+        public string UserId { get; set; }
         public virtual ApplicationUser User_ID { get; set; }
 
     }

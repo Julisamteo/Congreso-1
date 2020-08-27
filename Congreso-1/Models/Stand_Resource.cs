@@ -14,7 +14,6 @@ namespace Congreso_1.Models
         [ForeignKey("Stand")]
         public int StandId { get; set; }
         public virtual Stand Stand { get; set; }
-
         [Key]
         [Column(Order = 1)]
         [ForeignKey("Digital_Resource")]

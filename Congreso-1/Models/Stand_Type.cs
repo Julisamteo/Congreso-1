@@ -10,8 +10,8 @@ namespace Congreso_1.Models
     {
         [Key]
         public int StandType { get; set; }
-        public string StandTypeName { get; set; }
-        public string StandTypeDescription { get; set; }
+        public string StandName { get; set; }
+        public string StandDescription { get; set; }
         public int ResourceQuantity { get; set; }
     }
 }
