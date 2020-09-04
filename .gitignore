@@ -341,3 +341,6 @@ healthchecksdb
 /Congreso-1/Migrations/202007212153459_inicialDB.cs
 /Congreso-1/Migrations/202007212153459_inicialDB.Designer.cs
 /Congreso-1/Migrations/202007212153459_inicialDB.resx
+/Congreso-1/Migrations/202008281723192_carlospro.cs
+/Congreso-1/Migrations/202008281723192_carlospro.Designer.cs
+/Congreso-1/Migrations/202008281723192_carlospro.resx
