@@ -7,13 +7,13 @@ namespace Congreso_1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class schedulemigration : IMigrationMetadata
+    public sealed partial class mergedMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(schedulemigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(mergedMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202008261916162_schedulemigration"; }
+            get { return "202008271820470_mergedMigration"; }
         }
         
         string IMigrationMetadata.Source

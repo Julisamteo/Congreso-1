@@ -75,13 +75,13 @@ namespace Congreso_1.Migrations
                         UserCount = c.Int(nullable: false),
                         available = c.Boolean(nullable: false),
                         CongressId = c.Int(nullable: false),
-                        userId = c.String(maxLength: 128),
+                        AspNetUserId = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.WebinarId)
                 .ForeignKey("dbo.Congresses", t => t.CongressId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.userId)
+                .ForeignKey("dbo.AspNetUsers", t => t.AspNetUserId)
                 .Index(t => t.CongressId)
-                .Index(t => t.userId);
+                .Index(t => t.AspNetUserId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -255,7 +255,7 @@ namespace Congreso_1.Migrations
             DropForeignKey("dbo.Stands", "StandTypeId", "dbo.Stand_Type");
             DropForeignKey("dbo.Congress_Enterprise", "EnterpriseId", "dbo.Enterprises");
             DropForeignKey("dbo.Congress_Enterprise", "CongressId", "dbo.Congresses");
-            DropForeignKey("dbo.Webinars", "userId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Webinars", "AspNetUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUsers", "EnterpriseId", "dbo.Enterprises");
@@ -277,7 +277,7 @@ namespace Congreso_1.Migrations
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUsers", new[] { "CityId" });
             DropIndex("dbo.AspNetUsers", new[] { "EnterpriseId" });
-            DropIndex("dbo.Webinars", new[] { "userId" });
+            DropIndex("dbo.Webinars", new[] { "AspNetUserId" });
             DropIndex("dbo.Webinars", new[] { "CongressId" });
             DropIndex("dbo.Cities", new[] { "CountryId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
