@@ -192,13 +192,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008251633473_firstMigration.cs" />
-    <Compile Include="Migrations\202008251633473_firstMigration.Designer.cs">
-      <DependentUpon>202008251633473_firstMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202008261916162_schedulemigration.cs" />
-    <Compile Include="Migrations\202008261916162_schedulemigration.Designer.cs">
-      <DependentUpon>202008261916162_schedulemigration.cs</DependentUpon>
+    <Compile Include="Migrations\202008271820470_mergedMigration.cs" />
+    <Compile Include="Migrations\202008271820470_mergedMigration.Designer.cs">
+      <DependentUpon>202008271820470_mergedMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -317,6 +313,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202008041727184_firstMigration.resx">
       <DependentUpon>202008041727184_firstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008271820470_mergedMigration.resx">
+      <DependentUpon>202008271820470_mergedMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
