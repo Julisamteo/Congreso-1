@@ -192,9 +192,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202008281723192_carlospro.cs" />
-    <Compile Include="Migrations\202008281723192_carlospro.Designer.cs">
-      <DependentUpon>202008281723192_carlospro.cs</DependentUpon>
+    <Compile Include="Migrations\202009071621321_Primera.cs" />
+    <Compile Include="Migrations\202009071621321_Primera.Designer.cs">
+      <DependentUpon>202009071621321_Primera.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -335,8 +335,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202008281723192_carlospro.resx">
-      <DependentUpon>202008281723192_carlospro.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009071621321_Primera.resx">
+      <DependentUpon>202009071621321_Primera.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
