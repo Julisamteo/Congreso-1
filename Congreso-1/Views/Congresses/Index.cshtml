@@ -47,9 +47,10 @@
             @Html.DisplayFor(modelItem => item.Available)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CongressId }) |
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.CongressId }) |
             @Html.ActionLink("Details", "Details", new { id=item.CongressId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CongressId })
+            @Html.ActionLink("Delete", "Delete", new { id=item.CongressId })*@
+             @Html.ActionLink("Ingresar", "Index", "Stands", new { IdCongreso = item.CongressId}, null)
         </td>
     </tr>
 }

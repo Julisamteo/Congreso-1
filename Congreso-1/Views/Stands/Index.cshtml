@@ -59,9 +59,11 @@
             @Html.DisplayFor(modelItem => item.Available)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Stand_id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Stand_id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Stand_id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Stand_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Stand_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Stand_id })
+            @Html.ActionLink("Subir Recurso", "Index","Digital_Resource",new { stand = item.Stand_id },null)
+
         </td>
     </tr>
 }

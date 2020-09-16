@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Congreso_1.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Congreso_1.Controllers
 {
@@ -16,10 +17,14 @@ namespace Congreso_1.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Stands
-        public ActionResult Index()
+        public ActionResult Index(int IdCongreso)
         {
-            var tb_Stand = db.Tb_Stand.Include(s => s.Stand_Type);
-            return View(tb_Stand.ToList());
+            var consulta = (from stands in db.Tb_Stand
+                            join CongresoEmpresa in db.Tb_Congress_Enterprise on stands.Stand_id equals CongresoEmpresa.StandId
+                            where CongresoEmpresa.CongressId == IdCongreso
+                            select stands).ToList();
+            return View(consulta);
+
         }
 
         // GET: Stands/Details/5

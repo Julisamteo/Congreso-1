@@ -183,10 +183,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CongressesController.cs" />
+    <Compile Include="Controllers\Digital_ResourceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StandsController.cs" />
     <Compile Include="Controllers\Stand_TypeController.cs" />
+    <Compile Include="Controllers\VistaStandController.cs" />
     <Compile Include="Controllers\WebinarsController.cs" />
     <Compile Include="Enum\Enum.cs" />
     <Compile Include="Global.asax.cs">
@@ -195,6 +197,14 @@
     <Compile Include="Migrations\202009071621321_Primera.cs" />
     <Compile Include="Migrations\202009071621321_Primera.Designer.cs">
       <DependentUpon>202009071621321_Primera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009082005142_Segunda.cs" />
+    <Compile Include="Migrations\202009082005142_Segunda.Designer.cs">
+      <DependentUpon>202009082005142_Segunda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009101607471_IndexResource.cs" />
+    <Compile Include="Migrations\202009101607471_IndexResource.Designer.cs">
+      <DependentUpon>202009101607471_IndexResource.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -214,6 +224,7 @@
     <Compile Include="Models\Webinar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\VistaStand.cs" />
     <Compile Include="ViewModels\CreateWebinar.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -317,9 +328,17 @@
     <Content Include="Views\Stand_Type\Details.cshtml" />
     <Content Include="Views\Stand_Type\Edit.cshtml" />
     <Content Include="Views\Stand_Type\Index.cshtml" />
+    <Content Include="Views\Digital_Resource\Create.cshtml" />
+    <Content Include="Views\Digital_Resource\Delete.cshtml" />
+    <Content Include="Views\Digital_Resource\Details.cshtml" />
+    <Content Include="Views\Digital_Resource\Edit.cshtml" />
+    <Content Include="Views\Digital_Resource\Index.cshtml" />
+    <Content Include="Views\VistaStand\CargarDetalles.cshtml" />
+    <Content Include="Views\VistaStand\VistaPrueba.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ResourcesCongress\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -337,6 +356,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202009071621321_Primera.resx">
       <DependentUpon>202009071621321_Primera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009082005142_Segunda.resx">
+      <DependentUpon>202009082005142_Segunda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009101607471_IndexResource.resx">
+      <DependentUpon>202009101607471_IndexResource.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

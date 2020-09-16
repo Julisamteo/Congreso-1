@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Congreso_1.ViewModels.VistaStand>
+
+@{
+    ViewBag.Title = "CargarDetalles";
+}
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Index)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Logo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Recurse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ColorA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ColorB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ColorC)
+        </td>
+
+
+    </tr>
+    <br />
+}
+

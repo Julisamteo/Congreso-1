@@ -7,17 +7,25 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Congreso_1.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Congreso_1.Controllers
 {
     public class CongressesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        private ApplicationUser Usuario = new ApplicationUser();
         // GET: Congresses
         public ActionResult Index()
         {
-            return View(db.Tb_Congress.ToList());
+            var usuarioID = User.Identity.GetUserId();
+            Usuario = db.Users.Where(x => x.Id == usuarioID).FirstOrDefault();
+            var consulta = (from congreso in db.Tb_Congress
+                            join CongresoEmpresa in db.Tb_Congress_Enterprise on congreso.CongressId equals CongresoEmpresa.CongressId
+                            join empresa in db.Tb_Enterprise on CongresoEmpresa.EnterpriseId equals empresa.EnterpriseId
+                            where empresa.EnterpriseId == Usuario.EnterpriseId
+                            select congreso).ToList();
+            return View(consulta);
         }
 
         // GET: Congresses/Details/5
@@ -123,5 +131,6 @@ namespace Congreso_1.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
