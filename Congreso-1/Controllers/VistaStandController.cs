@@ -26,10 +26,11 @@ namespace Congreso_1.Controllers
                                 Logo = stands.EnterpriseLogo,
                                 Url = Resouces.ResourceUrl,
                                 Recurse = Resouces.ResourceHtml,
-                                ColorA = stands.StandColorA,
-                                ColorB = stands.StandColorB,
-                                ColorC = stands.StandColorC,
-                                Index = Resouces.Index
+                                //ColorA = stands.StandColorA,
+                                //ColorB = stands.StandColorB,
+                                //ColorC = stands.StandColorC,
+                                Index = Resouces.Index,
+                                Tamaño = stands.StandTypeId
                             }).ToList();
 
 
@@ -38,12 +39,17 @@ namespace Congreso_1.Controllers
 
 
         }
-        public ActionResult VistaPrueba()
+        public ActionResult VistaPruebaGrande()
         {
-
             return View();
-
-
+        }
+        public ActionResult VistaPruebaMediana()
+        {
+            return View();
+        }
+        public ActionResult VistaPruebaPequeño()
+        {
+            return View();
         }
     }
 }

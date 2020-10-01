@@ -183,6 +183,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CongressesController.cs" />
+    <Compile Include="Controllers\Congress_EnterpriseController.cs" />
     <Compile Include="Controllers\Digital_ResourceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -206,6 +207,18 @@
     <Compile Include="Migrations\202009101607471_IndexResource.Designer.cs">
       <DependentUpon>202009101607471_IndexResource.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009281439419_bannerCongress.cs" />
+    <Compile Include="Migrations\202009281439419_bannerCongress.Designer.cs">
+      <DependentUpon>202009281439419_bannerCongress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009281624355_ColorCongress.cs" />
+    <Compile Include="Migrations\202009281624355_ColorCongress.Designer.cs">
+      <DependentUpon>202009281624355_ColorCongress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009301902459_NameSTAND.cs" />
+    <Compile Include="Migrations\202009301902459_NameSTAND.Designer.cs">
+      <DependentUpon>202009301902459_NameSTAND.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\City.cs" />
@@ -223,14 +236,27 @@
     <Compile Include="Models\UserInteractions.cs" />
     <Compile Include="Models\Webinar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\VistaStand.cs" />
     <Compile Include="ViewModels\CreateWebinar.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Archivos\fondopre-stands.png" />
     <Content Include="Archivos\img-login.png" />
     <Content Include="Archivos\logo_head.png" />
     <Content Include="Archivos\logo_login.png" />
+    <Content Include="Archivos\render.png" />
+    <Content Include="Archivos\rendermedio.png" />
+    <Content Include="Archivos\renderpequeño.png" />
+    <Content Include="Archivos\StandWebinar.jpg" />
+    <Content Include="Archivos\Subidos\slide_1.png" />
+    <Content Include="Archivos\Subidos\slide_1_2.png" />
+    <Content Include="Archivos\Subidos\slide_2.png" />
     <Content Include="Contentv4\bootstrap-grid.css" />
     <Content Include="Contentv4\bootstrap-grid.min.css" />
     <Content Include="Contentv4\bootstrap-reboot.css" />
@@ -239,6 +265,7 @@
     <Content Include="Contentv4\bootstrap.min.css" />
     <Content Include="Contentv4\CustomStyles.css" />
     <Content Include="Contentv4\Site.css" />
+    <Content Include="Contentv4\Stands.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -334,7 +361,16 @@
     <Content Include="Views\Digital_Resource\Edit.cshtml" />
     <Content Include="Views\Digital_Resource\Index.cshtml" />
     <Content Include="Views\VistaStand\CargarDetalles.cshtml" />
-    <Content Include="Views\VistaStand\VistaPrueba.cshtml" />
+    <Content Include="Views\VistaStand\VistaPruebaGrande.cshtml" />
+    <Content Include="Views\VistaStand\VistaPruebaMediana.cshtml" />
+    <Content Include="Views\VistaStand\VistaPruebaPequeño.cshtml" />
+    <Content Include="Views\Stands\Index2.cshtml" />
+    <Content Include="Views\Congresses\Index2.cshtml" />
+    <Content Include="Views\Congress_Enterprise\Create.cshtml" />
+    <Content Include="Views\Congress_Enterprise\Delete.cshtml" />
+    <Content Include="Views\Congress_Enterprise\Details.cshtml" />
+    <Content Include="Views\Congress_Enterprise\Edit.cshtml" />
+    <Content Include="Views\Congress_Enterprise\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -362,6 +398,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009101607471_IndexResource.resx">
       <DependentUpon>202009101607471_IndexResource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009281439419_bannerCongress.resx">
+      <DependentUpon>202009281439419_bannerCongress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009281624355_ColorCongress.resx">
+      <DependentUpon>202009281624355_ColorCongress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009301902459_NameSTAND.resx">
+      <DependentUpon>202009301902459_NameSTAND.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -11,6 +11,7 @@ namespace Congreso_1.Models
     {
         [Key]
         public int Stand_id { get; set; }
+        public string StandName { get; set; }
 
         [ForeignKey("Stand_Type")]
         public int StandTypeId { get; set; }

@@ -8,8 +8,9 @@ namespace Congreso_1.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int idCongreso)
         {
+            ViewData["idCongreso"] = idCongreso;
             return View();
         }
 

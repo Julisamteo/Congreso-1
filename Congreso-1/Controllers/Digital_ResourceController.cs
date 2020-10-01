@@ -15,15 +15,22 @@ namespace Congreso_1.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Digital_Resource
-        public ActionResult Index(int stand)
+        public ActionResult Index(int? stand)
         {
-            var consulta = (from Resource in db.Tb_Digitar_Resource
-                            join StandResource in db.Tb_Stand_Resource on Resource.ResourceId equals StandResource.DResourceId
-                            where StandResource.StandId==stand
-                            select Resource).ToList();
-            ViewData["Stand"] = stand;
+            if (stand != null)
+            {
+                var consulta = (from Resource in db.Tb_Digitar_Resource
+                                join StandResource in db.Tb_Stand_Resource on Resource.ResourceId equals StandResource.DResourceId
+                                where StandResource.StandId == stand
+                                select Resource).ToList();
+                ViewData["Stand"] = stand;
+                return View(consulta);
 
-            return View(consulta);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Stands");
+            }
 
         }
 

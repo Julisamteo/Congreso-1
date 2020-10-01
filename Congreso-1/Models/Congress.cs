@@ -11,7 +11,10 @@ namespace Congreso_1.Models
         [Key]
         public int CongressId { get; set; }
         public string CongressName { get; set; }
+        public string CongressBanner { get; set; }
         public string CongressTheme { get; set; }
+        public string CongressColorA { get; set; }
+        public string CongressColorB { get; set; }
         public DateTime CongressInitialDate { get; set; }
         public DateTime CongressFinalDate { get; set; }
         public bool Available { get; set; }

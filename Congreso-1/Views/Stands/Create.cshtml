@@ -14,6 +14,13 @@
     <div class="form-horizontal">
         <h4>Stand</h4>
         <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.StandName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="StandName" id="StandName">
+            </div>
+        </div>
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.StandTypeId, "StandTypeId", htmlAttributes: new { @class = "control-label col-md-2" })
