@@ -12,7 +12,7 @@ namespace Congreso_1.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: ResourcesCongress/Details/5
+        //Controlador para cargar los datos e imagenes para usuario final en este controlador se cargan los tres tipos de congreso pero dependiendo el tamaño se muestra en la vista.
         public ActionResult CargarDetalles(int idStand)
         {
 

@@ -10,12 +10,39 @@
     <h4>Webinar</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dd>
+            @Html.DisplayFor(model => model.LinkWebinar)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Congress.CongressName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Congress.CongressName)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.WebinarTheme)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.WebinarTheme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarBannerPrincipal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebinarBannerPrincipal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarImagen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WebinarImagen)
         </dd>
 
         <dt>
@@ -32,14 +59,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.WebinarEndDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UserCount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserCount)
         </dd>
 
         <dt>

@@ -13,8 +13,14 @@ namespace Congreso_1.Models
         public int WebinarId { get; set; }
         // Sirve para poner el tema del Webinar
 
-        [Display(Name = "Tema")]
+        [Display(Name = "Nombre")]
         public string WebinarTheme { get; set; }
+        [Display(Name = "Banner Principal")]
+        public string WebinarBannerPrincipal { get; set; }
+        [Display(Name = "Imagen")]
+        public string WebinarImagen { get; set; }
+        [Display(Name = "Link")]
+        public string LinkWebinar { get; set; }
 
         [Display(Name = "Fecha y hora de inicio")]
         [DataType(DataType.DateTime)]
@@ -23,7 +29,6 @@ namespace Congreso_1.Models
         [Display(Name = "Fecha y hora de finalización")]
         [DataType(DataType.DateTime)]
         public DateTime WebinarEndDate { get; set; }
-        public int UserCount { get; set; }
 
         [Display(Name = "Disponible")]
         public bool available { get; set; }
@@ -33,9 +38,6 @@ namespace Congreso_1.Models
 
         public virtual Congress Congress { get; set; }
 
-        [ForeignKey("User_ID")]
-        public string UserId { get; set; }
-        public virtual ApplicationUser User_ID { get; set; }
 
     }
 }

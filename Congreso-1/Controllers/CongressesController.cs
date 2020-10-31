@@ -17,6 +17,7 @@ namespace Congreso_1.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationUser Usuario = new ApplicationUser();
         // GET: Congresses
+        //Controlador para el acceso de usuario y adminitrador a la vista Index de los congresos obtiene el rol registrado y le carga los datos dependiendo el Rol, en la vista maneja la misma logica de mostrar datos por rol
         public ActionResult Index()
         {
             ViewBag.Rol = ObtenerRol().ToString();

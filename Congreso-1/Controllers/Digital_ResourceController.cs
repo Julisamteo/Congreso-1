@@ -15,6 +15,7 @@ namespace Congreso_1.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Digital_Resource
+        //Controlador para el acceso de administrador para subir crear editar o borrar Recursos de los stands
         public ActionResult Index(int? stand)
         {
             if (stand != null)

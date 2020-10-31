@@ -219,6 +219,14 @@
     <Compile Include="Migrations\202009301902459_NameSTAND.Designer.cs">
       <DependentUpon>202009301902459_NameSTAND.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010021507326_Webinar.cs" />
+    <Compile Include="Migrations\202010021507326_Webinar.Designer.cs">
+      <DependentUpon>202010021507326_Webinar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010021738295_Webinar-link.cs" />
+    <Compile Include="Migrations\202010021738295_Webinar-link.Designer.cs">
+      <DependentUpon>202010021738295_Webinar-link.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\City.cs" />
@@ -335,11 +343,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Webinars\Create.cshtml" />
-    <Content Include="Views\Webinars\Delete.cshtml" />
-    <Content Include="Views\Webinars\Details.cshtml" />
-    <Content Include="Views\Webinars\Edit.cshtml" />
-    <Content Include="Views\Webinars\Index.cshtml" />
     <Content Include="Views\Congresses\Create.cshtml" />
     <Content Include="Views\Congresses\Delete.cshtml" />
     <Content Include="Views\Congresses\Details.cshtml" />
@@ -371,6 +374,11 @@
     <Content Include="Views\Congress_Enterprise\Details.cshtml" />
     <Content Include="Views\Congress_Enterprise\Edit.cshtml" />
     <Content Include="Views\Congress_Enterprise\Index.cshtml" />
+    <Content Include="Views\Webinars\Create.cshtml" />
+    <Content Include="Views\Webinars\Delete.cshtml" />
+    <Content Include="Views\Webinars\Details.cshtml" />
+    <Content Include="Views\Webinars\Edit.cshtml" />
+    <Content Include="Views\Webinars\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -407,6 +415,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009301902459_NameSTAND.resx">
       <DependentUpon>202009301902459_NameSTAND.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010021507326_Webinar.resx">
+      <DependentUpon>202010021507326_Webinar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010021738295_Webinar-link.resx">
+      <DependentUpon>202010021738295_Webinar-link.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
