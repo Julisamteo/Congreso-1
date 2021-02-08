@@ -195,29 +195,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009071621321_Primera.cs" />
-    <Compile Include="Migrations\202009071621321_Primera.Designer.cs">
-      <DependentUpon>202009071621321_Primera.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009082005142_Segunda.cs" />
-    <Compile Include="Migrations\202009082005142_Segunda.Designer.cs">
-      <DependentUpon>202009082005142_Segunda.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009101607471_IndexResource.cs" />
-    <Compile Include="Migrations\202009101607471_IndexResource.Designer.cs">
-      <DependentUpon>202009101607471_IndexResource.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009281439419_bannerCongress.cs" />
-    <Compile Include="Migrations\202009281439419_bannerCongress.Designer.cs">
-      <DependentUpon>202009281439419_bannerCongress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009281624355_ColorCongress.cs" />
-    <Compile Include="Migrations\202009281624355_ColorCongress.Designer.cs">
-      <DependentUpon>202009281624355_ColorCongress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009301902459_NameSTAND.cs" />
-    <Compile Include="Migrations\202009301902459_NameSTAND.Designer.cs">
-      <DependentUpon>202009301902459_NameSTAND.cs</DependentUpon>
+    <Compile Include="Migrations\202011052007577_firstMig.cs" />
+    <Compile Include="Migrations\202011052007577_firstMig.Designer.cs">
+      <DependentUpon>202011052007577_firstMig.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -390,23 +370,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202009071621321_Primera.resx">
-      <DependentUpon>202009071621321_Primera.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009082005142_Segunda.resx">
-      <DependentUpon>202009082005142_Segunda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009101607471_IndexResource.resx">
-      <DependentUpon>202009101607471_IndexResource.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009281439419_bannerCongress.resx">
-      <DependentUpon>202009281439419_bannerCongress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009281624355_ColorCongress.resx">
-      <DependentUpon>202009281624355_ColorCongress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009301902459_NameSTAND.resx">
-      <DependentUpon>202009301902459_NameSTAND.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011052007577_firstMig.resx">
+      <DependentUpon>202011052007577_firstMig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
