@@ -17,6 +17,7 @@ namespace Congreso_1.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationUser Usuario = new ApplicationUser();
         // GET: Congresses
+        //Controlador para el acceso de usuario y adminitrador a la vista Index de los congresos obtiene el rol registrado y le carga los datos dependiendo el Rol, en la vista maneja la misma logica de mostrar datos por rol
         public ActionResult Index()
         {
             ViewBag.Rol = ObtenerRol().ToString();
@@ -73,19 +74,22 @@ namespace Congreso_1.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (CongressBanner != null)
+                {
+                    var fecha = DateTime.Now.ToString().Replace(" ", "-");
+                    String ruta = Server.MapPath("~/Archivos/Subidos/");
+                    var rutaLink = ("../../Archivos/Subidos/" + (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + CongressBanner.FileName).ToLower());
+                    ruta += (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + CongressBanner.FileName).ToLower();
+                    CongressBanner.SaveAs(ruta);
+                    congress.CongressBanner = rutaLink;
+                }
+
                 db.Tb_Congress.Add(congress);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
-            if (CongressBanner != null)
-            {
-                var fecha = DateTime.Now.ToString().Replace(" ", "-");
-                String ruta = Server.MapPath("~/Archivos/Subidos/");
-                var rutaLink = ("../../Archivos/Subidos/" + (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + CongressBanner.FileName).ToLower());
-                ruta += (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + CongressBanner.FileName).ToLower();
-                CongressBanner.SaveAs(ruta);
-                congress.CongressBanner = rutaLink;
-            }
+           
 
             return View(congress);
         }
