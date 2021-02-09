@@ -74,19 +74,22 @@ namespace Congreso_1.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (CongressBanner != null)
+                {
+                    var fecha = DateTime.Now.ToString().Replace(" ", "-");
+                    String ruta = Server.MapPath("~/Archivos/Subidos/");
+                    var rutaLink = ("../../Archivos/Subidos/" + (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + CongressBanner.FileName).ToLower());
+                    ruta += (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + CongressBanner.FileName).ToLower();
+                    CongressBanner.SaveAs(ruta);
+                    congress.CongressBanner = rutaLink;
+                }
+
                 db.Tb_Congress.Add(congress);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
-            if (CongressBanner != null)
-            {
-                var fecha = DateTime.Now.ToString().Replace(" ", "-");
-                String ruta = Server.MapPath("~/Archivos/Subidos/");
-                var rutaLink = ("../../Archivos/Subidos/" + (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + CongressBanner.FileName).ToLower());
-                ruta += (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + CongressBanner.FileName).ToLower();
-                CongressBanner.SaveAs(ruta);
-                congress.CongressBanner = rutaLink;
-            }
+           
 
             return View(congress);
         }

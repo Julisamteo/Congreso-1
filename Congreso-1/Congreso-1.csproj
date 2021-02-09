@@ -190,42 +190,15 @@
     <Compile Include="Controllers\StandsController.cs" />
     <Compile Include="Controllers\Stand_TypeController.cs" />
     <Compile Include="Controllers\VistaStandController.cs" />
+    <Compile Include="Controllers\VistaWebinarController.cs" />
     <Compile Include="Controllers\WebinarsController.cs" />
     <Compile Include="Enum\Enum.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009071621321_Primera.cs" />
-    <Compile Include="Migrations\202009071621321_Primera.Designer.cs">
-      <DependentUpon>202009071621321_Primera.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009082005142_Segunda.cs" />
-    <Compile Include="Migrations\202009082005142_Segunda.Designer.cs">
-      <DependentUpon>202009082005142_Segunda.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009101607471_IndexResource.cs" />
-    <Compile Include="Migrations\202009101607471_IndexResource.Designer.cs">
-      <DependentUpon>202009101607471_IndexResource.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009281439419_bannerCongress.cs" />
-    <Compile Include="Migrations\202009281439419_bannerCongress.Designer.cs">
-      <DependentUpon>202009281439419_bannerCongress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009281624355_ColorCongress.cs" />
-    <Compile Include="Migrations\202009281624355_ColorCongress.Designer.cs">
-      <DependentUpon>202009281624355_ColorCongress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009301902459_NameSTAND.cs" />
-    <Compile Include="Migrations\202009301902459_NameSTAND.Designer.cs">
-      <DependentUpon>202009301902459_NameSTAND.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010021507326_Webinar.cs" />
-    <Compile Include="Migrations\202010021507326_Webinar.Designer.cs">
-      <DependentUpon>202010021507326_Webinar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202010021738295_Webinar-link.cs" />
-    <Compile Include="Migrations\202010021738295_Webinar-link.Designer.cs">
-      <DependentUpon>202010021738295_Webinar-link.cs</DependentUpon>
+    <Compile Include="Migrations\202011172055190_initial.cs" />
+    <Compile Include="Migrations\202011172055190_initial.Designer.cs">
+      <DependentUpon>202011172055190_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -252,9 +225,11 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\VistaStand.cs" />
     <Compile Include="ViewModels\CreateWebinar.cs" />
+    <Compile Include="ViewModels\VistaWebinar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Archivos\fondopre-stands.png" />
+    <Content Include="Archivos\fondo_Webinar.png" />
     <Content Include="Archivos\img-login.png" />
     <Content Include="Archivos\logo_head.png" />
     <Content Include="Archivos\logo_login.png" />
@@ -379,6 +354,7 @@
     <Content Include="Views\Webinars\Details.cshtml" />
     <Content Include="Views\Webinars\Edit.cshtml" />
     <Content Include="Views\Webinars\Index.cshtml" />
+    <Content Include="Views\VistaWebinar\CargarDetallesWebinar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -398,29 +374,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202009071621321_Primera.resx">
-      <DependentUpon>202009071621321_Primera.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009082005142_Segunda.resx">
-      <DependentUpon>202009082005142_Segunda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009101607471_IndexResource.resx">
-      <DependentUpon>202009101607471_IndexResource.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009281439419_bannerCongress.resx">
-      <DependentUpon>202009281439419_bannerCongress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009281624355_ColorCongress.resx">
-      <DependentUpon>202009281624355_ColorCongress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009301902459_NameSTAND.resx">
-      <DependentUpon>202009301902459_NameSTAND.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010021507326_Webinar.resx">
-      <DependentUpon>202010021507326_Webinar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202010021738295_Webinar-link.resx">
-      <DependentUpon>202010021738295_Webinar-link.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011172055190_initial.resx">
+      <DependentUpon>202011172055190_initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
