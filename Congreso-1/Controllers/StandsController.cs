@@ -8,19 +8,42 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Congreso_1.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Congreso_1.Controllers
 {
+    [Authorize]
+
     public class StandsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Stands
-        public ActionResult Index()
+        //Controlador para el acceso de usuario y adminitrador a la vista Index de los stands obtiene el rol registrado y le carga los datos dependiendo el Rol, en la vista maneja la misma logica de mostrar datos por rol
+        public ActionResult Index(int? IdCongreso)
         {
-            var tb_Stand = db.Tb_Stand.Include(s => s.Stand_Type);
-            return View(tb_Stand.ToList());
+
+        ViewBag.Rol = ObtenerRol().ToString();
+        var consulta=new List<Stand>();
+        if (ViewBag.Rol == "Usuario")
+            {
+                 consulta = (from stands in db.Tb_Stand
+                                join CongresoEmpresa in db.Tb_Congress_Enterprise on stands.Stand_id equals CongresoEmpresa.StandId
+                                where CongresoEmpresa.CongressId == IdCongreso
+                                select stands).ToList();
+            }
+        else if(ViewBag.rol == "Admin")
+            {
+                 consulta = (from stands in db.Tb_Stand
+                                join CongresoEmpresa in db.Tb_Congress_Enterprise on stands.Stand_id equals CongresoEmpresa.StandId
+                                select stands).ToList();
+            }
+
+        return View(consulta);
+
         }
+
+
 
         // GET: Stands/Details/5
         public ActionResult Details(int? id)
@@ -56,16 +79,16 @@ namespace Congreso_1.Controllers
                 if (EnterpriseLogo != null)
                 {
                     var fecha = DateTime.Now.ToString().Replace(" ", "-");
-                    String ruta = Server.MapPath("~/Archivos/");
-                    var rutaLink = ("../../Archivos/"+ (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + EnterpriseLogo.FileName).ToLower());
+                    String ruta = Server.MapPath("~/Archivos/Subidos/");
+                    var rutaLink = ("../../Archivos/Subidos/"+ (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + EnterpriseLogo.FileName).ToLower());
                     ruta += (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + EnterpriseLogo.FileName).ToLower();
                     EnterpriseLogo.SaveAs(ruta);
                     stand.EnterpriseLogo = rutaLink;
                 }
                 if(EnterpriseBanner != null)
                 {
-                    String ruta = Server.MapPath("~/Archivos/");
-                    var rutaLink = ("../../Archivos/" + (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + EnterpriseBanner.FileName).ToLower());
+                    String ruta = Server.MapPath("~/Archivos/Subidos/");
+                    var rutaLink = ("../../Archivos/Subidos/" + (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + EnterpriseBanner.FileName).ToLower());
                     ruta += (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + EnterpriseBanner.FileName).ToLower(); 
                     EnterpriseBanner.SaveAs(ruta);
                     stand.EnterpriseBanner = rutaLink;
@@ -73,6 +96,7 @@ namespace Congreso_1.Controllers
                 db.Tb_Stand.Add(stand);
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
             }
 
             ViewBag.StandTypeId = new SelectList(db.Tb_Stand_Type, "StandType", "StandName", stand.StandTypeId);
@@ -146,6 +170,12 @@ namespace Congreso_1.Controllers
             }
             base.Dispose(disposing);
         }
-
+        public string ObtenerRol()
+        {
+            string userId = User.Identity.GetUserId();
+            ApplicationDbContext db = new ApplicationDbContext();
+            string rol = db.Users.Where(x => x.Id == userId).FirstOrDefault().Rol.ToString();
+            return rol;
+        }
     }
 }

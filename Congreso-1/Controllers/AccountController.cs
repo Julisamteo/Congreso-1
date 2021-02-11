@@ -452,7 +452,7 @@ namespace Congreso_1.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Congresses");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
@@ -483,6 +483,7 @@ namespace Congreso_1.Controllers
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
         }
+
         #endregion
     }
 }

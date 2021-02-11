@@ -14,5 +14,7 @@ namespace Congreso_1.Models
         public string ResourceUrl { get; set; }
         public string ResourceHtml { get; set; }
         public bool Available { get; set; }
+        public int Index { get; set; }
+
     }
 }

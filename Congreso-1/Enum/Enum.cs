@@ -10,10 +10,9 @@ namespace Congreso_1.Enum
         public enum Roles
         {
             Selecione = 0,
-            SuperAdmin,
-            AdminCongreso,
-            Empresa,
-            Visitante
+            Admin=1,
+            Usuario=2,
+
         }
     }
 }

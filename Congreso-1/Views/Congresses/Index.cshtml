@@ -3,8 +3,46 @@
 @{
     ViewBag.Title = "Index";
 }
+@if (ViewBag.Rol == "Usuario")
+{
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <div style="background:#eaeaea" class="row">
 
-<h2>Index</h2>
+            <div class="col-md-6" style="border-right: 2px solid @item.CongressColorA;">
+                <center><img src="@item.CongressBanner" style="width: 450px; padding: 10px;" /></center>
+            </div>
+            <div class="col-md-6" style="padding:10px">
+                <h2 style="color:@item.CongressColorA">
+                    @Html.DisplayFor(modelItem => item.CongressName)
+                </h2>
+                <br />
+                <p>
+                    @Html.DisplayFor(modelItem => item.CongressTheme)
+                </p>
+                <br />
+                <p>
+                    @Html.DisplayFor(modelItem => item.CongressInitialDate) -   @Html.DisplayFor(modelItem => item.CongressFinalDate)
+                </p>
+                <br />
+
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.CongressId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.CongressId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.CongressId })*@
+                @Html.ActionLink("Ingresar", "Index", "Home", new { IdCongreso = item.CongressId }, new { @style = "background:" + item.CongressColorA + ";color:#ffffff; width: 200px;", @class = "btn btn - warning" })
+            </div>
+        </div>
+    }
+
+</table>
+
+
+}
+else if (ViewBag.Rol == "Admin")
+{
+
+<h2>Index2</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -29,29 +67,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CongressName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CongressTheme)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CongressInitialDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CongressFinalDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Available)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CongressId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CongressId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CongressId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CongressName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CongressTheme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CongressInitialDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CongressFinalDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Available)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CongressId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CongressId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CongressId }) |
+                @Html.ActionLink("Ir Stands", "Index", "Stands", new { idCongreso = item.CongressId }, null) |
+
+            </td>
+        </tr>
+    }
 
 </table>
+}

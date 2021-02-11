@@ -22,3 +22,36 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*Estilos de los stands*/
+@media screen and (min-width: 4001px) {
+    body {
+        background: red;
+        background-size: 100%;
+        background-position-y: -140px;
+    }
+}
+
+@media screen and (min-width: 2501px) and (max-width: 4000px) {
+    body {
+        background: yellow;
+        background-size: 100%;
+        background-position-y: -140px;
+    }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 2500px) {
+    body {
+        background: green;
+        background-size: 100%;
+        background-position-y: -140px;
+    }
+}
+
+@media screen and (max-width: 1599px) {
+    body {
+        background: blue;
+        background-size: 100%;
+        background-position-y: -140px;
+    }
+}
