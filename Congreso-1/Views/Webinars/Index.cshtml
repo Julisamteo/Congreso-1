@@ -104,7 +104,7 @@ else if (ViewBag.Rol == "Usuario")
             @foreach (var item in Model)
             {
 
-                <img src="@item.WebinarBannerPrincipal" onclick="location.href='../Vistastand/CargarDetalles?idstand=@item.WebinarId'" />
+                <img src="@item.WebinarBannerPrincipal" onclick="location.href='../VistaWebinar/CargarDetallesWebinar?idwebinar=@item.WebinarId'" />
             }
         </div>
         <center>
