@@ -190,14 +190,15 @@
     <Compile Include="Controllers\StandsController.cs" />
     <Compile Include="Controllers\Stand_TypeController.cs" />
     <Compile Include="Controllers\VistaStandController.cs" />
+    <Compile Include="Controllers\VistaWebinarController.cs" />
     <Compile Include="Controllers\WebinarsController.cs" />
     <Compile Include="Enum\Enum.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011052007577_firstMig.cs" />
-    <Compile Include="Migrations\202011052007577_firstMig.Designer.cs">
-      <DependentUpon>202011052007577_firstMig.cs</DependentUpon>
+    <Compile Include="Migrations\202011172055190_initial.cs" />
+    <Compile Include="Migrations\202011172055190_initial.Designer.cs">
+      <DependentUpon>202011172055190_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -224,9 +225,11 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\VistaStand.cs" />
     <Compile Include="ViewModels\CreateWebinar.cs" />
+    <Compile Include="ViewModels\VistaWebinar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Archivos\fondopre-stands.png" />
+    <Content Include="Archivos\fondo_Webinar.png" />
     <Content Include="Archivos\img-login.png" />
     <Content Include="Archivos\logo_head.png" />
     <Content Include="Archivos\logo_login.png" />
@@ -315,11 +318,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Webinars\Create.cshtml" />
-    <Content Include="Views\Webinars\Delete.cshtml" />
-    <Content Include="Views\Webinars\Details.cshtml" />
-    <Content Include="Views\Webinars\Edit.cshtml" />
-    <Content Include="Views\Webinars\Index.cshtml" />
     <Content Include="Views\Congresses\Create.cshtml" />
     <Content Include="Views\Congresses\Delete.cshtml" />
     <Content Include="Views\Congresses\Details.cshtml" />
@@ -351,6 +349,12 @@
     <Content Include="Views\Congress_Enterprise\Details.cshtml" />
     <Content Include="Views\Congress_Enterprise\Edit.cshtml" />
     <Content Include="Views\Congress_Enterprise\Index.cshtml" />
+    <Content Include="Views\Webinars\Create.cshtml" />
+    <Content Include="Views\Webinars\Delete.cshtml" />
+    <Content Include="Views\Webinars\Details.cshtml" />
+    <Content Include="Views\Webinars\Edit.cshtml" />
+    <Content Include="Views\Webinars\Index.cshtml" />
+    <Content Include="Views\VistaWebinar\CargarDetallesWebinar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -370,8 +374,23 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011052007577_firstMig.resx">
-      <DependentUpon>202011052007577_firstMig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009071621321_Primera.resx">
+      <DependentUpon>202009071621321_Primera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009082005142_Segunda.resx">
+      <DependentUpon>202009082005142_Segunda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009101607471_IndexResource.resx">
+      <DependentUpon>202009101607471_IndexResource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009281439419_bannerCongress.resx">
+      <DependentUpon>202009281439419_bannerCongress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009281624355_ColorCongress.resx">
+      <DependentUpon>202009281624355_ColorCongress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009301902459_NameSTAND.resx">
+      <DependentUpon>202009301902459_NameSTAND.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
