@@ -23,10 +23,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-linkh" })</li>
-                    <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-linkh" })</li>
-                    <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-linkh" })</li>
-                </ul>
+                    @*
+        <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-linkh" })</li>
+        <li class="nav-item">@Html.ActionLink("About", "About", "Home", null, new { @class = "nav-linkh" })</li>
+        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-linkh" })</li>*@
+                            </ul>
                 @*@Html.Partial("_LoginPartial")*@
             </div>
         </div>
@@ -35,7 +36,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Content Group S.A.</p>
         </footer>
     </div>
 
