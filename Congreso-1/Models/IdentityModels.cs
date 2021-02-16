@@ -5,6 +5,8 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
 using static Congreso_1.Enum.Enum;
 
 namespace Congreso_1.Models
@@ -58,22 +60,23 @@ namespace Congreso_1.Models
         public DbSet<Stand> Tb_Stand { get; set; }
         public DbSet<Stand_Resource> Tb_Stand_Resource { get; set; }
         public DbSet<Stand_Type> Tb_Stand_Type { get; set; }
-        public DbSet<UserInteractions> Tb_User_Interactions{get; set; }
+        public DbSet<UserInteractions> Tb_User_Interactions { get; set; }
         public DbSet<Webinar> Tb_Webinar { get; set; }
-
-
-
-
-
-
-
-
-
-
+        public DbSet<Category> Category {get;set;}
+        public DbSet<StandCategory> StandCategory { get; set; }
 
         public static ApplicationDbContext Create()
         {
+            
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Category>().ToTable("Category");
+            modelBuilder.Entity<StandCategory>().ToTable("StandCategory");
         }
     }
 }
