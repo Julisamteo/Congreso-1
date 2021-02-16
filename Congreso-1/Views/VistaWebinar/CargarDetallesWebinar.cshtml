@@ -1,32 +1,46 @@
 ﻿@model IEnumerable<Congreso_1.ViewModels.VistaWebinar>
-
 @{
-    ViewBag.Title = "Webinar";
+    ViewBag.Title = "CargarDetallesWebinar";
 }
 
+<h2>CargarDetallesWebinar</h2>
 
+<div class="row" style="background: url(../../Archivos/fondo_Webinar.png); background-size: 100%; background-position-y: -140px;height:auto; background-repeat:no-repeat">
+    <dl class="dl-horizontal">
+        @*<dd>
+            @Html.DisplayFor(model => model.LinkWebinar)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarTheme)
+        </dt>
 
-    <div class="row" style="background: url(../../Archivos/fondo_Webinar.png); background-size: 100%; background-position-y: -140px;height:auto; background-repeat:no-repeat">
-        @*@foreach (var item in Model)
-        {
-            if (item.Index == 1)
-            {
-                <button class="boton1pequeño">1</button>
-            }
-            if (item.Index == 2)
-            {
-                <button class="boton2pequeño">2</button>
-            }
-            if (item.Index == 3)
-            {
-                <button class="boton3pequeño">3</button>
-            }
-        }*@
+        <dd>
+            @Html.DisplayFor(model => model.WebinarTheme)
+        </dd>
 
-    </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarImagen)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.WebinarImagen)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarInitialDate)
+        </dt>
 
+        <dd>
+            @Html.DisplayFor(model => model.WebinarInitialDate)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.WebinarEndDate)
+        </dt>
 
-
+        <dd>
+            @Html.DisplayFor(model => model.WebinarEndDate)
+        </dd>*@
+                
+    </dl>
+</div>

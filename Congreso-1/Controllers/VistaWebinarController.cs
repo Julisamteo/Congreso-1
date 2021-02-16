@@ -16,7 +16,7 @@ namespace Congreso_1.Controllers
 
             var consulta = (from webinar in db.Tb_Webinar
                             where webinar.WebinarId == idWebinar
-                            select new VistaWebinarController
+                            select new VistaWebinar
                             {
                                 Tema = webinar.WebinarTheme,
                                 DiaInicio = webinar.WebinarInitialDate,
